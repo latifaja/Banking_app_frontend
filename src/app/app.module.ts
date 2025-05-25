@@ -16,6 +16,7 @@ import { AdminTemplateComponent } from './admin-template/admin-template.componen
 import { AppHttpInterceptor } from './interceptors/app-http.interceptor';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { AuthorizationGuard } from './guards/authorization.guard';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthorizationGuard } from './guards/authorization.guard';
     NewCustomerComponent,
     CustomerAccountsComponent,
     LoginComponent,
-    AdminTemplateComponent
+    AdminTemplateComponent,
+    NotAuthorizedComponent
   ],
   imports: [
     BrowserModule,

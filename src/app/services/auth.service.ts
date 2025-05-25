@@ -23,13 +23,16 @@ export class AuthService {
     return this.http.post(environment.backendHost + "/auth/login", params, options);
   }
 
-  loadProfile(data: any) {
+ loadProfile(data: any) {
+      this.isAuthenticated = true;
+
     this.accessToken = data['access-token'];
-    this.isAuthenticated = true;
-    let jwtToken:any = jwtDecode(this.accessToken);
-    this.username = jwtToken.sub;
-    this.roles = jwtToken.scope;
+    let decodedJwt:any = jwtDecode(this.accessToken);
+    this.username = decodedJwt.sub;
+    this.roles = decodedJwt.scope;
     window.localStorage.setItem("jwt-token", this.accessToken);
+    this.router.navigateByUrl("/admin/customers");
+
   }
 
   logout() {

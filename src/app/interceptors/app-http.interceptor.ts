@@ -13,7 +13,7 @@ export class AppHttpInterceptor {
       return next.handle(request);
     } else {
       let newRequest = request.clone({
-        headers: request.headers.set('Authorization', 'Bearer ' + this.authService.accessToken)
+        headers: request.headers.set('Authorization', 'Bearer '+this.authService.accessToken)
       });
       return next.handle(newRequest).pipe(
         catchError(err => {
